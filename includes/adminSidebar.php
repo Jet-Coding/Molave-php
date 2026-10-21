@@ -1,20 +1,69 @@
 <aside class="sidebar">
-	<div class="brand">
-		<div class="mark">M</div>
-		<span>Molave</span>
+	<div class="sidebar-header">
+		<div class="logo">
+			<img src="/images/Logo.svg" alt="logo" />
+			<span class="brand-name">Molave</span>
+		</div>
+		<button id="sidebar-toggle" aria-label="Toggle Sidebar">
+			<span class="material-icons-sharp">menu</span>
+		</button>
 	</div>
-	<div class="nav-label">WORKSPACE</div>
-	<nav class="nav" aria-label="Main navigation">
-		<button class="active" data-page="Overview"><span class="material-icons-sharp"> dashboard </span> Dashboard</button>
-		<button data-page="Analytics"><span class="material-icons-sharp">analytics</span> Analytics</button>
-		<button data-page="Customers"><span class="material-icons-sharp"> people </span> Users <span class="count">8</span></button>
-		<button data-page="Orders"><span class="material-icons-sharp"> shopping_cart </span> Orders</button>
-		<button data-page="Products"><span class="material-icons-sharp"> inventory </span> Products</button>
-		<button data-page="Messages"><span class="material-icons-sharp"> message </span> Messages</button>
-	</nav>
-	<div class="nav-label" style="margin-top: 28px">PREFERENCES</div>
-	<nav class="nav">
-		<button data-page="Settings"><span class="material-icons-sharp"> settings </span> Settings</button>
-		<button data-page="Help Center"><span class="material-icons-sharp"> help </span> Help Center</button>
+	<p>
+		Logged in:
+		<strong>
+			<%= (typeof user !== 'undefined' && user) ? (user.username || user.email)
+			: 'Admin' %> 
+		</strong>
+	</p>
+	<nav class="sidebar-nav">
+		<a
+			href="/admin/dashboard"
+			class="nav-link <%= typeof activePage !== 'undefined' && activePage === 'dashboard' ? 'active' : '' %>">
+			<span class="material-icons-sharp"> dashboard </span>
+			<h5>Dashboard</h5>
+		</a>
+
+		<a
+			href="/admin/users"
+			class="nav-link <%= typeof activePage !== 'undefined' && activePage === 'users' ? 'active' : '' %>">
+			<span class="material-icons-sharp"> person_outline </span>
+			<h5>Users</h5>
+		</a>
+
+		<a
+			href="/admin/history"
+			class="nav-link <%= typeof activePage !== 'undefined' && activePage === 'history' ? 'active' : '' %>">
+			<span class="material-icons-sharp"> receipt_long </span>
+			<h5>History</h5>
+		</a>
+
+		<a
+			href="/admin/analytics"
+			class="nav-link <%= typeof activePage !== 'undefined' && activePage === 'analytics' ? 'active' : '' %>">
+			<span class="material-icons-sharp"> insights </span>
+			<h5>Analytics</h5>
+		</a>
+
+		<!--	<a
+			href="/admin/newLogin"
+			class="nav-link <%= typeof activePage !== 'undefined' && activePage === 'newLogin' ? 'active' : '' %>">
+			<span class="material-icons-sharp"> add </span>
+			<h5>New Login</h5>
+		</a>	-->
+
+		<a
+			href="/admin/settings"
+			class="nav-link <%= typeof activePage !== 'undefined' && activePage === 'settings' ? 'active' : '' %>">
+			<span class="material-icons-sharp"> settings </span>
+			<h5>Settings</h5>
+		</a>
+
+		<form action="/auth/logout-admin" method="POST" style="margin-top: 20px">
+			<div class="nav-divider"></div>
+			<button type="submit" class="btn-logout">
+				<span class="material-icons-sharp"> logout </span>
+				<h5>Logout</h5>
+			</button>
+		</form>
 	</nav>
 </aside>

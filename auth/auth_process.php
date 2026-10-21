@@ -1,7 +1,7 @@
 <?php
 
 session_start(); 
-require_once 'config.php'; 
+require_once __DIR__ . '/../config/config.php';
 
 if (isset($_POST['register_btn'])) { 
     $name = $_POST['name']; 
@@ -23,7 +23,7 @@ if (isset($_POST['register_btn'])) {
         ];
         $_SESSION['active_form'] = 'login'; 
     }
-    header('Location: index.php');
+    header('Location: ../index.php');
     exit();
 }
 
@@ -47,7 +47,7 @@ if (isset($_POST['login_btn'])) {
             ];
             $_SESSION['active_form'] = 'login'; 
         }
-        header('Location: index.php');
+        header('Location: ../index.php');
         exit();
     }
 ?>

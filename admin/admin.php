@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
-  <?php require_once __DIR__ . '/../includes/adminHead.php'; ?>
+  <?php require_once dirname(__DIR__) . '/includes/adminHead.php'; ?>
   <body>
     <div class="overlay" id="overlay"></div>
     <div class="app">
-      <?php require_once __DIR__ . '/../includes/adminSidebar.php'; ?>
+      <?php require_once dirname(__DIR__) . '/includes/adminSidebar.php'; ?>
       <main class="main">
         <header class="topbar">
           <div class="top-left">

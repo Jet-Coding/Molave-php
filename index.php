@@ -13,14 +13,14 @@ unset($_SESSION['alerts'], $_SESSION['active_form']);
 $page_title = "Home | Molave";
 
 // Include the shared head section
-require_once __DIR__ . '/includes/head.php';
+require_once __DIR__ . '/includes/clientHead.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 	<body>
 		<!-- Main Layout Container -->
 		<div class="app-container">
-			<?php require_once __DIR__ . '/includes/sidebar.php'; ?>
+			<?php require_once __DIR__ . '/includes/clientSidebar.php'; ?>
 			<main class="main-content">
 
 				<!-- Top Header Utilities -->
@@ -189,7 +189,7 @@ require_once __DIR__ . '/includes/head.php';
 
 			<div class="form-box login">
 				<h2>Login</h2>
-				<form action="auth_process.php" method="POST">
+				<form action="auth/auth_process.php" method="POST">
 					<div class="input-box">
 						<input type="email" name="email" placeholder="Email" required>
 						<i class='bx bxs-envelope'></i> 
@@ -205,7 +205,7 @@ require_once __DIR__ . '/includes/head.php';
 
 			<div class="form-box register">
 				<h2>Register</h2>
-				<form action="auth_process.php" method="POST">
+				<form action="auth/auth_process.php" method="POST">
 					<div class="input-box">
 						<input type="text" name="name" placeholder="Name" required>
 						<i class='bx bxs-user'></i>  

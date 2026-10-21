@@ -56,9 +56,9 @@
                 <div class="nav-icon-wrap"><i class="fa-solid fa-square-plus"></i></div>
                 <span>Upload</span>
             </a>
-            <a href="#" class="nav-item user-auth">
+            <a href="../profile.php" class="nav-item user-auth">
                 <div class="nav-icon-wrap"><i class="fa-regular fa-circle-user"></i></div>
-                <span>User</span>
+                <span><?= $name ?? 'Profile' ?></span>
             </a>
             <a href="#" class="nav-item">
                 <div class="nav-icon-wrap"><i class="fa-solid fa-ellipsis"></i></div>
@@ -69,6 +69,7 @@
         <hr class="sidebar-divider">
 
         <!-- Following Accounts Section -->
+        <!-- 
         <div class="section-title">Following accounts</div>
         <div class="accounts-list">
             <a href="#" class="account-item">
@@ -86,5 +87,6 @@
                 </div>
             </a>
         </div>
+        -->
     </div>
 </aside>
