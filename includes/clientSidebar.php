@@ -1,3 +1,6 @@
+<?php
+    $currentPage = basename($_SERVER['PHP_SELF']);
+?>
 <aside class="sidebar">
     <div>
         <!-- Brand Header -->
@@ -21,7 +24,7 @@
 
         <!-- Navigation List -->
         <nav class="nav-list">
-            <a href="#" class="nav-item active">
+            <a href="index.php" class="nav-item <?= $currentPage === 'index.php' ? 'active' : ''; ?>">
                 <div class="nav-icon-wrap"><i class="fa-solid fa-house"></i></div>
                 <span>For You</span>
             </a>
@@ -56,10 +59,19 @@
                 <div class="nav-icon-wrap"><i class="fa-solid fa-square-plus"></i></div>
                 <span>Upload</span>
             </a>
-            <a href="../profile.php" class="nav-item user-auth">
-                <div class="nav-icon-wrap"><i class="fa-regular fa-circle-user"></i></div>
-                <span><?= $name ?? 'Profile' ?></span>
-            </a>
+            <!-- User Auth / Profile Link -->
+            <?php if (!empty($name)): ?>
+                <a href="profile.php" class="nav-item user-auth <?= $currentPage === 'profile.php' ? 'active' : ''; ?>">
+                    <div class="nav-icon-wrap"><i class="fa-regular fa-circle-user"></i></div>
+                    <span><?= htmlspecialchars($name); ?></span>
+                </a>
+            <?php else: ?>
+                <a href="#" class="nav-item user-auth login-btn-modal">
+                    <div class="nav-icon-wrap"><i class="fa-regular fa-circle-user"></i></div>
+                    <span>Profile</span>
+                </a>
+            <?php endif; ?>
+
             <a href="#" class="nav-item">
                 <div class="nav-icon-wrap"><i class="fa-solid fa-ellipsis"></i></div>
                 <span>More</span>

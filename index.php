@@ -12,11 +12,10 @@ unset($_SESSION['alerts'], $_SESSION['active_form']);
 // Page-specific variable
 $page_title = "Home | Molave";
 
-// Include the shared head section
-require_once __DIR__ . '/includes/clientHead.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
+	<?php require_once __DIR__ . '/includes/clientHead.php'; ?>
 	<body>
 		<!-- Main Layout Container -->
 		<div class="app-container">
@@ -350,6 +349,21 @@ require_once __DIR__ . '/includes/clientHead.php';
 						navItems.forEach(i => i.classList.remove('active'));
 						item.classList.add('active');
 					});
+				});
+			});
+
+			// Sidebar Nav Items Navigation & Active Toggle
+			const navItems = document.querySelectorAll('.nav-item');
+			navItems.forEach(item => {
+				item.addEventListener('click', (e) => {
+					const href = item.getAttribute('href');
+					
+					// Only block default action if it's a dummy anchor '#' or missing
+					if (!href || href === '#') {
+						e.preventDefault();
+						navItems.forEach(i => i.classList.remove('active'));
+						item.classList.add('active');
+					}
 				});
 			});
 		</script>
