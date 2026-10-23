@@ -59,17 +59,11 @@
                 <div class="nav-icon-wrap"><i class="fa-solid fa-square-plus"></i></div>
                 <span>Upload</span>
             </a>
-            <!-- User Auth / Profile Link -->
             <?php if (!empty($name)): ?>
-                <a href="profile.php" class="nav-item user-auth <?= $currentPage === 'profile.php' ? 'active' : ''; ?>">
-                    <div class="nav-icon-wrap"><i class="fa-regular fa-circle-user"></i></div>
-                    <span><?= htmlspecialchars($name); ?></span>
-                </a>
-            <?php else: ?>
-                <a href="#" class="nav-item user-auth login-btn-modal">
-                    <div class="nav-icon-wrap"><i class="fa-regular fa-circle-user"></i></div>
-                    <span>Profile</span>
-                </a>
+            <a href="index.php?page=profile" class="nav-item">
+                <div class="nav-icon-wrap"><i class="fa-regular fa-circle-user"></i></div>
+                <span><?= htmlspecialchars($name) ?></span>
+            </a>
             <?php endif; ?>
 
             <a href="#" class="nav-item">
@@ -79,26 +73,5 @@
         </nav>
 
         <hr class="sidebar-divider">
-
-        <!-- Following Accounts Section -->
-        <!-- 
-        <div class="section-title">Following accounts</div>
-        <div class="accounts-list">
-            <a href="#" class="account-item">
-                <img src="https://i.pravatar.cc/150?img=11" alt="rtdofficial" class="account-avatar">
-                <div class="account-details">
-                    <div class="account-username">rtdofficial</div>
-                    <div class="account-nickname">ViralPreneur By RTD</div>
-                </div>
-            </a>
-            <a href="#" class="account-item">
-                <img src="https://i.pravatar.cc/150?img=47" alt="capcut_official" class="account-avatar">
-                <div class="account-details">
-                    <div class="account-username">capcut_official</div>
-                    <div class="account-nickname">CapCut Editing</div>
-                </div>
-            </a>
-        </div>
-        -->
     </div>
 </aside>
